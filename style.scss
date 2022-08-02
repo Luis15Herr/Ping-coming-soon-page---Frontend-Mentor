@@ -81,6 +81,12 @@ body {
   outline: none;
   padding: 0 1.5625rem;
   transition: ease 0.2s;
+  font-size: 0.8em;
+  &::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $Gray;
+    opacity: 0.5;
+  }
 }
 .error__msg {
   display: none;
@@ -155,6 +161,7 @@ body {
 }
 .copy {
   font-size: 0.6em;
+  color: $Gray;
 }
 #toast {
   visibility: hidden; /* Hidden by default. Visible on click */

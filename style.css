@@ -95,6 +95,31 @@ body {
   padding: 0 1.5625rem;
   -webkit-transition: ease 0.2s;
   transition: ease 0.2s;
+  font-size: 0.8em;
+}
+
+.form__input::-webkit-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #969696;
+  opacity: 0.5;
+}
+
+.form__input:-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #969696;
+  opacity: 0.5;
+}
+
+.form__input::-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #969696;
+  opacity: 0.5;
+}
+
+.form__input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #969696;
+  opacity: 0.5;
 }
 
 .error__msg {
@@ -188,6 +213,7 @@ body {
 
 .copy {
   font-size: 0.6em;
+  color: #969696;
 }
 
 #toast {
