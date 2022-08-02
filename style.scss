@@ -18,9 +18,14 @@ body {
   font-family: "Libre Franklin", sans-serif;
   font-size: 20px;
   position: relative;
-  &::after {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  /*   &::after {
     content: "";
-    background-image: url(./design/desktop-design.jpg);
+    background-image: url(./design/mobile-design.jpg);
+    background-size: cover;
     width: 100%;
     height: 100%;
     top: 0;
@@ -29,14 +34,19 @@ body {
     background-position: center;
     opacity: 0.3;
     pointer-events: none;
-  }
+  } */
 }
 .container {
   width: 1100px;
+
   margin: auto;
   text-align: center;
 }
 .content__wrapper {
+  padding-top: 44px;
+}
+.logo {
+  padding-top: 65px;
 }
 .page__title {
   color: $Gray;
@@ -59,12 +69,39 @@ body {
   justify-content: center;
   margin-top: 40px;
 }
+.form__wrapper {
+  position: relative;
+}
 .form__input {
   border: 1px solid $PaleBlue;
   width: 420px;
   height: 55px;
   border-radius: 30px;
   margin-right: 15px;
+  outline: none;
+  padding: 0 25px;
+  transition: ease 0.2s;
+}
+.error__msg {
+  display: none;
+  position: absolute;
+  position: absolute;
+  left: 27px;
+  bottom: -23px;
+  font-size: 0.65em;
+  font-style: italic;
+  color: $LightRed;
+  transition: ease 0.2s;
+}
+.error {
+  transition: ease 0.2s;
+
+  .form__input {
+    border: 1px solid $LightRed;
+  }
+  .error__msg {
+    display: block;
+  }
 }
 .form__btn {
   background-color: $Blue;
@@ -75,17 +112,191 @@ body {
   border-radius: 30px;
   font-weight: 600;
   font-size: 0.85em;
+  transition: ease 0.2s;
+
+  &:hover {
+    filter: brightness(130%);
+    cursor: pointer;
+    transition: ease 0.2s;
+  }
 }
-.img {
+.ilustration {
   margin-top: 85px;
-  img {
-    width: 640px;
+}
+.ilustration__img {
+  width: 640px;
+}
+.socials {
+  margin-bottom: 22px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+}
+.socials__item {
+  border: 1px solid $PaleBlue;
+  margin: 0 4px;
+  /* transform: scale(1.5); */
+  border-radius: 50%;
+  padding: 3px 5px;
+  color: $Blue;
+  transition: ease 0.2s;
+
+  &::before {
+    transform: scale(0.7);
+  }
+  &:hover {
+    cursor: pointer;
+    color: white;
+    background-color: $Blue;
+    border: 1px solid $Blue;
+    transition: ease 0.2s;
+  }
+}
+.copy {
+  font-size: 0.6em;
+}
+#toast {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 15.625rem; /* Set a default minimum width */
+  margin-left: -7.8125rem; /* Divide value of min-width by 2 */
+  background-color: #4bb543; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 0.125rem; /* Rounded borders */
+  padding: 1rem; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 15%; /* Center the snackbar */
+  bottom: 3.125rem; /* 1.875rem from the bottom */
+  font-size: 0.8em;
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#toast.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 1.875rem;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 1.875rem;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 1.875rem;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 1.875rem;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
   }
 }
 .attribution {
   font-size: 11px;
   text-align: center;
+  margin-bottom: 10px;
   a {
     color: hsl(228, 45%, 44%);
+  }
+}
+
+@media screen and(max-width:1024px) {
+  main {
+    padding-bottom: 60px;
+  }
+  .footer {
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
+  #toast {
+    left: 20%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 0 52px;
+  }
+  .logo {
+    padding-top: 32px;
+    svg {
+      transform: scale(0.7);
+    }
+  }
+  .content__wrapper {
+    padding-top: 35px;
+  }
+  .page__title {
+    font-size: 1.26em;
+  }
+  .page__subtitle {
+    font-size: 0.69em;
+    margin-top: 21px;
+  }
+  .form {
+    flex-wrap: wrap;
+    margin-top: 37px;
+  }
+  .form__btn,
+  .form__input,
+  .form__wrapper {
+    width: 100%;
+    height: 45px;
+  }
+  .form__wrapper {
+    margin-bottom: 11px;
+  }
+  .error {
+    .form__wrapper {
+      margin-bottom: 30px;
+    }
+  }
+  .ilustration__img {
+    width: 100%;
+  }
+  .footer {
+    padding-top: 150px;
+  }
+  #toast {
+    left: 50%;
   }
 }

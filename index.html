@@ -51,16 +51,26 @@
         </h1>
         <h2 class="page__subtitle">Subscribe and get notified</h2>
         <form class="form">
-          <input class="form__input" type="text" />
+          <div class="form__wrapper">
+            <input class="form__input" type="text" />
+            <span class="error__msg">
+              Please provide a valid email adress
+            </span>
+          </div>
           <button class="form__btn">Notify Me</button>
+          <div id="toast">You will receive our mails soon!</div>
         </form>
       </div>
-      <div class="img">
-        <img src="./images/illustration-dashboard.png" alt="" />
+      <div class="ilustration">
+        <img
+          class="ilustration__img"
+          src="./images/illustration-dashboard.png"
+          alt="Dashboard Ilustration"
+        />
       </div>
     </main>
 
-    <footer>
+    <footer class="footer">
       <div class="container">
         <div class="socials">
           <i class="bi bi-facebook socials__item"></i>
@@ -72,9 +82,13 @@
           Challenge by
           <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
             >Frontend Mentor</a
-          >. Coded by <a href="#">Your Name Here</a>.
+          >. Coded by
+          <a target="_blank" href="https://www.instagram.com/luisherrerael"
+            >Luis Herrera⚡</a
+          >.
         </div>
       </div>
     </footer>
+    <script src="js.js"></script>
   </body>
 </html>
